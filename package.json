@@ -6,10 +6,12 @@
   "scripts": {
     "start": "node main",
     "dev": "nodemon main",
-    "docker-compose-down": "docker-compose -f './docker-compose.yml' down",
-    "docker-compose-up:dev": "docker-compose -f './docker-compose.yml' up -d --build api_my_tasks_nodejs",
-    "docker:start": "npm run docker-compose-down; npm run docker-compose-up:dev; docker-compose logs -f api_my_tasks_nodejs",
-    "docker:restart": "docker-compose -f ./docker-compose.yml -f  restart api_my_tasks_nodejs",
+    "docker:down": "docker-compose -f './docker-compose.yml' down",
+    "docker:up": "docker-compose -f './docker-compose.yml' up -d --build api_my_tasks_nodejs",
+    "docker:clean": "npm run docker:down; npm run docker:up; npm run docker:log",
+    "docker:start" :"docker start mongo_my_tasks_nodejs && docker start api_my_tasks_nodejs ;npm run docker:log",
+    "docker:rebuild": "docker-compose -f ./docker-compose.yml -f  restart api_my_tasks_nodejs",
+    "docker:stop" : "docker stop api_my_tasks_nodejs && docker stop mongo_my_tasks_nodejs",
     "docker:log" : "docker-compose logs -f api_my_tasks_nodejs"
   },
   "author": "",
