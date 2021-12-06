@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  api_my_tasks_nodejs:
+    container_name: api_my_tasks_nodejs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${API_PORT}:5000"
+    volumes:
+      # you_local_path/:your_container_path/ which I bind to reflect changes to container
+      - ./bin:/app/bin
+    command: npm run dev
+    networks:
+      - network_my_tasks_nodejs
+    depends_on:
+      - mongo_my_tasks_nodejs
+    environment:
+      - MONGO_URI=mongodb://mongo_my_tasks_nodejs:27017/my_tasks_db
+
+  mongo_my_tasks_nodejs:
+    container_name: mongo_my_tasks_nodejs
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - network_my_tasks_nodejs
+networks:
+  network_my_tasks_nodejs:
+    driver: bridge

@@ -1,0 +1,35 @@
+{
+  "name": "dockerize-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/app.js",
+  "scripts": {
+    "start": "node main",
+    "dev": "nodemon main",
+    "docker-compose-down": "docker-compose -f './docker-compose.yml' down",
+    "docker-compose-up:dev": "docker-compose -f './docker-compose.yml' up -d --build api_my_tasks_nodejs",
+    "docker:start": "npm run docker-compose-down; npm run docker-compose-up:dev; docker-compose logs -f api_my_tasks_nodejs",
+    "docker:restart": "docker-compose -f ./docker-compose.yml -f  restart api_my_tasks_nodejs",
+    "docker:log" : "docker-compose logs -f api_my_tasks_nodejs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "link-module-alias": "^1.2.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.11.18",
+    "morgan": "^1.10.0",
+    "xml2json": "^0.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
