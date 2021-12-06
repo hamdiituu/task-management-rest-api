@@ -54,7 +54,13 @@
 					"name": "detail task",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFlNzZiZDQ1ZjUyNzA1YzRmYzdlODIiLCJlbWFpbCI6ImRldmVsb3BlcjJAbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJkZXZlbG9wZXIgZmlyc3ROYW1lIiwibGFzdE5hbWUiOiJkZXZlbG9wZXIgbGFzdE5hbWUiLCJpYXQiOjE2Mzg4MjU3MTYsImV4cCI6MTYzODgyOTMxNn0.QJCnRi0DCbM9NU7E4ghEFliFuHYKoqd7EfK-xNHIZaY",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:5000/api/tasks/detail/61ae5116a8e0d7002097d54d",
 							"protocol": "http",
@@ -76,7 +82,13 @@
 					"name": "create new task",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFlNzZiZDQ1ZjUyNzA1YzRmYzdlODIiLCJlbWFpbCI6ImRldmVsb3BlcjJAbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJkZXZlbG9wZXIgZmlyc3ROYW1lIiwibGFzdE5hbWUiOiJkZXZlbG9wZXIgbGFzdE5hbWUiLCJpYXQiOjE2Mzg4MjU3MTYsImV4cCI6MTYzODgyOTMxNn0.QJCnRi0DCbM9NU7E4ghEFliFuHYKoqd7EfK-xNHIZaY",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"title\" :\"first tasks\",\n    \"description\" :\"de1\"\n}",
@@ -171,6 +183,71 @@
 								"api",
 								"tasks",
 								"removedList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "sign up with account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"developer2@mail.com\",\n    \"firstName\" : \"developer firstName\",\n    \"lastName\" :\"developer lastName\",\n    \"password\" :\"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/account/signUp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"account",
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign in with account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" :\"developer2@mail.com\",\n    \"password\" :\"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/account/signIn",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"account",
+								"signIn"
 							]
 						}
 					},
